@@ -56,12 +56,12 @@ int main() {
   char *buf;
   uint8_t *p;
   char read_p;
-  
+
+  trap();
+
   FILE *maps = fopen("/proc/self/maps", "r");
   fread(maps_s, 1, MAX_MAPS_LEN, maps);
   buf = maps_s;
- 
-  trap();
  
   debug("Escape function: %p\n", &escape);
   debug("Searched pointer: 0x%llx\n", msg_p);
